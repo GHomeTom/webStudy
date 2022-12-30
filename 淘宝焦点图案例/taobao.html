@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝焦点图</title>
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+}
+.tb {
+    position: relative;
+    margin: 50px auto;
+    width: 630px;
+    height: 315px;
+}
+.tb img {
+    width: 630px;
+    height: 315px;
+    border-radius: 12px;
+}
+.rt,
+.lt {
+    position: absolute;
+    /* left: 0; */
+    top: 50%;
+    width: 16px;
+    height: 30px;
+    margin-top: -15px;
+    background: rgba(0, 0, 0, .3);
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    line-height: 30px;
+}
+.lt {
+    left: 0;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.rt {
+    right: 0;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.dnav {
+    border-radius: 10px;
+    position: absolute;
+    bottom: 15px;
+    /* width: 70px; */
+    height: 13px;
+    text-align: center;
+    font-size: 0;
+    left: 50%;
+    margin-left: -39px;
+    background-color: rgba(255,255,255,.3);
+}
+.dnav li {
+    display: inline-block;
+    margin: 3px;
+    list-style: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: #fff;
+}
+.dnav li a {
+    display: block;
+    text-decoration: none;
+    /* text-align: center; */
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+}
+.dnav .selected {
+    background-color: #ff5000;
+}
+</style>
+<body>
+    <div class="tb">
+        <img src="images/pic.jpg" alt="">
+        <a href="#" class="lt"><</a>
+        <a href="#" class="rt">></a>
+            <ul class="dnav">
+                <li class="selected"><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+    </div>
+    
+</body>
+</html>

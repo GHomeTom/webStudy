@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动文字环绕</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .fl {
+        margin: 100px auto;
+        padding: 5px;
+        width: 300px;
+        height: 70px;
+        background-color: pink;
+        /* line-height: 150px; */
+    }
+    .fl img {
+        float: left;
+        width: 30%;
+        height: 100%;
+        /* vertical-align: baseline; */
+    }
+    .fl p {
+        /* white-space: nowrap; */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        /* padding: 7px 0; */
+    }
+</style>
+<body>
+    <div class="fl">
+        <img src="images/pic.jpg" alt="">
+        <p>今天学习了css三角，css文本溢出省略号显示；图片，行内块，行内元素的居中显示等。利用浮动元素文字会环绕浮动元素的特点，进行网页设计。</p>
+    </div>
+</body>
+</html>
