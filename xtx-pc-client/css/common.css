@@ -47,6 +47,7 @@
 .xtx-main-nav {
     height: 130px;
     padding: 30px 0;
+    /* line-height: 130px; */
     background-color: pink;
 }
 /* logo部分 */
@@ -69,4 +70,90 @@
     height: 100%;
     background: url(../images/logo.png) no-repeat 0 0/cover;
     /* background-size: 100%; */
+}
+/* 商品导航栏部分 */
+.shop-nav {
+    float: left;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+.shop-nav ul li {
+    float: left;
+    margin: 0 20px;
+}
+.shop-nav li a {
+    display: block;
+    height: 32px;
+    line-height: 32px;
+}
+.shop-nav li a:hover {
+    color: #27ba9b;
+    border-bottom: 1px solid #27ba9b;
+}
+/* 搜索模块 */
+.xtx-search {
+    position: relative;
+    float: left;
+    height: 70px;
+    line-height: 70px;
+}
+.xtx-search input {
+    width: 172px;
+    height: 38px;
+    margin-left: 20px;
+    padding-left: 30px;
+    border-radius: 8px;
+    border-bottom: 2px solid #e7e7e7e7;
+}
+/* 伪元素修改搜索框文本样式 */
+.xtx-search input::placeholder {
+    color: #ccc;
+}
+/* 放大镜图片精灵图 */
+.xtx-search a {
+    position: absolute;
+    top: 27px;
+    left: 25px;
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: url(../images/sprites.png) no-repeat -80px -70px;
+}
+/* 伪元素设置放大镜精灵图位置 */
+/* .xtx-search::before {
+    content: "";
+    position: absolute;
+    top: 27px;
+    left: 25px;
+    width: 18px;
+    height: 18px;
+    background: url(../images/sprites.png) no-repeat -80px -70px;
+} */
+/* 购物车图标 */
+.shopcar {
+    position: relative;
+    float: left;
+    width: 23px;
+    height: 23px;
+    margin-top: 25px;
+    margin-left: 20px;
+    /* background-color: #27ba9b; */
+}
+.shopcar a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url(../images/sprites.png) no-repeat -120px -70px;
+}
+/* 购物车小角标数字 */
+.shopcar span {
+    position: absolute;
+    top: -8px;
+    left: 18px;
+    height: 15px;
+    line-height: 15px;
+    padding: 0 5px;
+    font-size: 13px;
+    background-color: #e26237;
+    border-radius: 7px;
 }
