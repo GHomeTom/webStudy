@@ -157,3 +157,197 @@
     background-color: #e26237;
     border-radius: 7px;
 }
+
+
+
+
+/* 尾部模块 */
+/* 关于我们信息 */
+.footer-t {
+    height: 300px;
+    padding-top: 80px;
+    /* background-color: #27ba9b; */
+}
+.footer-t dl {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+.footer-t dt {
+    margin-bottom: 35px;
+    font-size: 16px;
+    color: #999;
+}
+/* dd转化为行内块，使其具有间隙 */
+.footer-t .customer dd,
+.footer-t .us dd {
+    display: inline-block;
+    width: 92px;
+    height: 92px;
+    /* background-color: pink; */
+    border: 1px solid #ccc;
+}
+.customer dd a,
+.us dd a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    color: #999;
+}
+/* 伪元素制作微信等图标 */
+.customer dd a::before,
+.us dd a::before {
+    content: "";
+    display: inline-block;
+    height: 29px;
+    width: 29px;
+    margin-top: 20px;
+    background: url(../images/sprites.png) no-repeat -250px -70px;
+    transition: all .4s;
+}
+/* 精灵图定位 */
+.customer .p2 a::before {
+    background-position: -350px -70px;
+}
+.us .p1 a::before {
+    width: 40px;
+    height: 30px;
+    background-position: -248px -14px;
+}
+.us .p2 a::before {
+    width: 40px;
+    height: 30px;
+    background-position: -346px -14px;
+}
+/* hover部分：客服及关注我们 */
+.customer .p1 a:hover::before,
+.customer .p1 a:hover {
+    background-position: -205px -70px;
+    color: #27ba9b;
+}
+.customer .p2 a:hover::before,
+.customer .p2 a:hover {
+    background-position: -300px -70px;
+    color: #27ba9b;
+}
+.us .p1 a:hover::before,
+.us .p1 a:hover {
+    background-position: -204px -14px;
+    color: #27ba9b;
+}
+.us .p2 a:hover::before,
+.us .p2 a:hover {
+    background-position: -296px -14px;
+    color: #27ba9b;
+}
+/* 下载app部分 */
+.download .qr {
+    float: left;
+    padding: 3px;
+    margin-top: -13px;
+    width: 120px;
+    height: 120px;
+    border: 1px solid #ccc;
+}
+.download .app p {
+    float: left;
+    margin-left: 20px;
+    color: #999;
+}
+.download .qr img {
+    width: 100%;
+    height: 100%;
+}
+.download .app a {
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 37px;
+    width: 90px;
+    height: 23px;
+    line-height: 23px;
+    background-color: #27ba9b;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #27ba9b;
+}
+.download .app a:hover {
+    background-color: #fff;
+    color: #27ba9b;
+}
+/* 服务热线 */
+.hotline {
+    height: 200px;
+    border-left: 1px solid #ccc;
+}
+.hotline dd p:nth-child(1) {
+    margin-top: 40px;
+    font-size: 22px;
+    /* font-weight: 400; */
+}
+.hotline dd p:nth-child(2) {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+/* copyright部分 */
+.footer-b {
+    height: 340px;
+    background-color: #333;
+}
+.footer-b .info {
+    height: 175px;
+    color: #ccc;
+    border-bottom: 1px solid #666;
+}
+.footer-b .info span {
+    float: left;
+    /* display: inline-block; */
+    width: 33.33%;
+    height: 175px;
+    line-height: 175px;
+    font-size: 28px;
+    text-align: center;
+}
+.footer-b .info span::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 58px;
+    height: 58px;
+    margin-right: 20px;
+    background: url(../images/sprites.png) no-repeat 0 0;
+}
+.footer-b span:nth-child(2)::before {
+    background-position: -130px 0;
+}
+.footer-b span:nth-child(3)::before {
+    background-position: -64px 0;
+}
+
+/* 底部小字链接关于我们部分及copyright */
+.last {
+    text-align: center;
+}
+.last p {
+    margin-top: 50px;
+}
+.last p a {
+    display: inline-block;
+    color: #999;
+    font-size: 14px;
+    /* color: #999; */
+    /* float: left; */
+}
+.last p a:hover {
+    color: #27ba9b;
+}
+.last p span {
+    margin: 0 6px;
+    color: #999;
+}
+.copyrt {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #999;
+}
