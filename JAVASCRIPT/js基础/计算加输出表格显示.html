@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         * {
+      margin: 0;
+      padding: 0;
+    }
+
+    table {
+      margin: 0 auto;
+      text-align: center;
+      border-collapse: collapse;
+    }
+
+    table th,
+    td {
+      border: 1px solid #000;
+      padding: 15px;
+
+    }
+
+    table caption {
+      margin: 15px 0;
+    }
+    </style>
+</head>
+<body>
+    
+    <script>
+        // 1. 输入 price num  address 三个变量
+        let tot = +prompt('请输入银行卡总额:')
+        let elc = +prompt('请输入电费:')
+        let water = +prompt('请输入水费:')
+        let net = +prompt('请输入网费:')
+        let aft = tot - (elc + water + net);
+        // 2. 渲染表格 填充数据
+        document.write(`
+        <table>
+        <caption>
+            <h2>1月收支统计</h2>
+        </caption>
+        <tr>
+            <th>银行卡总额</th>
+            <th>电费</th>
+            <th>水费</th>
+            <th>网费</th>
+            <th>余额</th>
+        </tr>
+        <tr>
+            <td>${tot}元</td>
+            <td>${elc}元</td>
+            <td>${water}</td>
+            <td>${net}元</td>
+            <td>${aft}</td>
+        </tr>
+        </table>
+        `)
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    // // 练习1: 使用for循环 - 求出数组元素的和 [5, 8, 9, 2, 1, 5]
+    //     let arr = [5, 8, 9, 2, 1, 5]
+    //     let sum = 0
+    //     for (let i = 0; i < arr.length; i++) {
+    //         sum += arr[i]
+    //     }
+    //     document.write (sum)
+
+    // 练习2: 使用for循环 - 求出数组里大于5的和 [4, 9, 5, 20, 3, 11]
+    // let sum = 0
+    // let arr = [4, 9, 5, 20, 3, 11]
+    // for (let i = 0; i < arr.length; i++) {
+    //     if (arr[i] <= 5) {
+    //         continue;
+    //     }
+    //     sum += arr[i]
+    // }
+    // document.write (sum)
+
+    // 给一个数字数组，该数组中有很多数字0，将不为0的数据存入到一个新的数组中
+    let a = null
+    let b = 0
+    let arr = []
+    let newArr = []
+    while (a !== '') {
+        a = prompt ('请输入数字：(直接输入回车以结束)')
+        b = +a
+        // 判断用户是否输入数字合法
+        if (typeof (b) === "number" && isNaN(b)) {
+            alert('请输入整数')
+            continue;
+        }
+        arr.push (b)
+    }
+    // 将去0数组输出到新数组打印
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === 0) {
+            continue;
+        }
+        newArr.push (arr[i])
+    }
+    console.log (newArr)
+    </script>
+</body>
+</html>

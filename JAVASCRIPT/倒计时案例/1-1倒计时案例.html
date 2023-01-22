@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        textarea {
+            display: block;
+            width: 200px;
+            height: 300px;
+            margin: 0px auto;
+            margin-top: 30px;
+            border: 2px solid #000;
+        }
+        button {
+            display: block;
+            margin: 10px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <textarea name="" id="" cols="30" rows="10" disabled style="resize: none;">
+        kkfsdkfsdlkfdksfjskdfjsdjflksjflksjf的时间看大家分厘卡撒酒疯卢卡斯的积分了附件是灯笼裤飞机喀什放假啦空手道解放了的房间里康师傅记录卡撒旦记录卡分开来看司法解释JFK撒旦记录卡。第三方JFK
+        九十点附近警方电视机分厘卡撒酒疯是JFK对方的很少发生JFK六十九解放立刻时间分厘卡数据库打开JFK世界里开发建设离开 快乐建立付款时间分厘卡即使看来飞机离开流口水的开始JFK十分士大夫。发是对方是否， 沙发沙发。是。
+        发射点发射点发顺丰发是。丰大厦的，。发，  士大夫士大夫，。 阿萨的肤色热，投入大海的和，他忽然套口挺快精品。皇太极。太空人狂热狂热看看垃圾额哦哦哇江东父老。
+        和无人机而我i让我儿童绘画工具绿卡。
+    </textarea>
+    <!-- 禁用按钮 -->
+    <button class="btn" disabled>请阅读用户协议(5s)</button>
+    <script>
+        // 获取元素button
+        let btn = document.querySelector('.btn')
+        // 计算逻辑
+        let sec = 5
+        let timer = setInterval (function(){
+            sec--
+            btn.innerHTML = `请阅读用户协议(${sec}s)`
+            if (sec === 0) {
+            clearInterval (timer)
+            // 启用按钮，更改文本
+            btn.disabled = false
+            btn.innerHTML = '我已阅读！并同意'
+        }
+        }, 1000)
+        
+    </script>
+</body>
+</html>

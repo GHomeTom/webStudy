@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 50px auto 0;
+            background-color: #e4e4;
+        }
+        button {
+            position: absolute;
+            left: -20px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border: none;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button>×</button>
+    </div>
+
+
+    <script>
+        let btn = document.querySelector ('button')
+        btn.addEventListener ('click', function () {
+            // 通过parentNode寻找btn的父节点
+            this.parentNode.style.display = 'none'
+        })
+    </script>
+</body>
+</html>

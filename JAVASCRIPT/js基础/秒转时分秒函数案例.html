@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function timeTransform (sec) {
+            let tT = []
+                h = 0 
+                m = 0
+                s = 0;
+            // parseInt () 函数将计算结果转化为整型
+            s = parseInt (sec %60)
+            m = parseInt (sec /60 %60)
+            h = parseInt (sec /60 /60)
+            // 为只有个位数的情况补零
+            h = h > 10 ? h : ('0' + h)
+            m = m > 10 ? m : ('0' + m)
+            s = s > 10 ? s : ('0' + s)
+            return  tT = [ h, m, s]
+        }
+        let sec = +prompt ('请您输入总秒数：')
+        let hms = []
+        hms = timeTransform (sec)
+        // console.log (`总计${hms[0]}时${hms[1]}分${hms[2]}秒`)
+        document.write (`总计${hms[0]}时${hms[1]}分${hms[2]}秒`)
+    </script>
+</body>
+</html>

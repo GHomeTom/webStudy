@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let name = prompt("请输入您的姓名！")
+            age = prompt("请输入您的年龄！") 
+            sex = prompt("请输入您的性别！")
+        // console控制台输出使用的是反单引号，并且prompt接受的是字符串类型，需要使用“+变量名”进行转化
+        console.log(` 您的姓名是：${name}\n`,`您五年后的年龄是：${+age+5}\n`,`您的性别是：${sex}\n`);
+    </script>
+</body>
+</html>

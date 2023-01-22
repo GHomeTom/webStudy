@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3851238 */
+  src: url('iconfont.woff2?t=1673362403898') format('woff2'),
+       url('iconfont.woff?t=1673362403898') format('woff'),
+       url('iconfont.ttf?t=1673362403898') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-xiangyoujiantou:before {
+  content: "\e65f";
+}
+

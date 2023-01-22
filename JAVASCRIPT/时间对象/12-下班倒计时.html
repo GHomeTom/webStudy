@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .countdown {
+      width: 240px;
+      height: 305px;
+      text-align: center;
+      line-height: 1;
+      color: #fff;
+      background-color: brown;
+      /* background-size: 240px; */
+      /* float: left; */
+      overflow: hidden;
+    }
+
+    .countdown .next {
+      font-size: 16px;
+      margin: 25px 0 14px;
+    }
+
+    .countdown .title {
+      font-size: 33px;
+    }
+
+    .countdown .tips {
+      margin-top: 80px;
+      font-size: 23px;
+    }
+
+    .countdown small {
+      font-size: 17px;
+    }
+
+    .countdown .clock {
+      width: 180px;
+      margin: 18px auto 0;
+      /* text-align: center; */
+      overflow: hidden;
+    }
+
+    .countdown .clock span,
+    .countdown .clock i {
+      display: block;
+      text-align: center;
+      line-height: 34px;
+      font-size: 20px;
+      float: left;
+    }
+
+    .countdown .clock span {
+      display: block;
+      width: 30px;
+      height: 30px;
+      border-radius: 2px;
+      background-color: #303430;
+    }
+
+    .countdown .clock i {
+      width: 20px;
+      font-style: normal;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="countdown">
+    <p class="next">今天是2023年1月21日</p>
+    <p class="title">冲锋倒计时</p>
+    <p class="clock">
+      <span id="days">he</span>
+      <i>:</i>
+      <span id="hours">ll</span>
+      <i>:</i>
+      <span id="minutes">o </span>
+      <i>:</i>
+      <span id="seconds"> !</span>
+    </p>
+    <p class="tips">
+      现在是18:30:00
+    </p>
+  </div>
+  <script>
+
+    // 获取元素
+    let next = document.querySelector('.next')
+    let tips = document.querySelector('.tips')
+    let days = document.querySelector('#days')
+    let hours = document.querySelector('#hours')
+    let minutes = document.querySelector('#minutes')
+    let seconds = document.querySelector('#seconds')
+
+    // 先初始化加载倒计时时间函数，防止定时器前1000ms的空白
+    let timer = function () {
+      // 实时获取当前时间的年月日
+    let date = new Date()
+    let yy = date.getFullYear()
+    let mm = date.getMonth() + 1
+    let dd = new Date().getDate()
+
+    // 修改时间为当前时间年月日
+    next.innerHTML = `今天是${yy}年${mm}月${dd}日`
+
+    // 显示现在时间时分秒
+    let hh = date.getHours()
+    let min = date.getMinutes()
+    let sec = date.getSeconds()
+    hh = hh >= 10 ? hh : '0' + hh
+    min = min >= 10 ? ':' + min : ':0' + min
+    sec = sec >= 10 ? ':' + sec : ':0' + sec
+    let tt = hh + min + sec
+    tips.innerHTML = `现在时间${tt}`
+    // console.log (tt)
+
+    // 设置预定时间戳
+    let plan = + new Date('2023-4-22 00:00:00')
+    // 获取当前时间戳
+    let now = + new Date()
+
+    // 相减得倒计时时间
+    let time = (plan - now) / 1000
+
+    // 计算倒计时时分秒
+    // 计算天数
+    let d = parseInt(time / 60 / 60 / 24)  //计算天数
+    // h = parseInt(总秒数 / 60 / 60 % 24)   //   计算小时
+    let h = parseInt(time / 60 / 60 % 24)
+    // m = parseInt(总秒数 / 60 % 60);     //   计算分数
+    let m = parseInt(time / 60 % 60)
+    // s = parseInt(总秒数 % 60); //   计算当前秒数
+    let s = parseInt(time % 60);
+    // console.log(d, h, m, s)
+
+    // 为小于10的时间数补0
+    // d = d >= 10 ? +d : '0' + d
+    h = h >= 10 ? h : '0' + h
+    m = m >= 10 ? m : '0' + m
+    s = s >= 10 ? s : '0' + s
+
+
+    days.innerHTML = d
+    hours.innerHTML = h
+    minutes.innerHTML = m
+    seconds.innerHTML = s
+    // console.log(d, h, m, s)
+    }
+    let rst = timer ()
+// 设置定时器
+    let go = setInterval(timer, 1000)
+
+  </script>
+</body>
+
+</html>

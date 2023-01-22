@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .box {
+        position: relative;
+        width: 700px;
+        height: 300px;
+        margin: 50Px auto;
+        background: url(./images/bg.jpg) no-repeat;
+        background-size: 100%;
+        overflow: hidden;
+    }
+    .left, 
+    .right{
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        /* 利用背景制作 */
+        background: url(./images/fm.jpg) no-repeat;
+        background-size: cover;
+        overflow: hidden;
+    }
+    .left {
+        left: 0;
+        transition: all .5s;
+
+        background-position: 0 0;
+    }
+    .right {
+        right: 0;
+        transition: all .5s;
+        
+        background-position: right 0;
+    }
+    /* 
+    img {
+        position: absolute;
+        top: 0;
+        height: 100%;
+    }
+    .img1 {
+        left: 0;
+    }
+    .img2 {
+        right: 0;
+    }
+    */
+    .box:hover .left {
+        left: -50%;
+    }
+    .box:hover .right {
+        right: -50%;
+    } 
+</style>
+<body>
+    <div class="box">
+        <div class="left">
+            <!-- <img src="./images/fm.jpg" alt="" class="img1"> -->
+        </div>
+        <div class="right">
+            <!-- <img src="./images/fm.jpg" alt="" class="img2"> -->
+        </div>
+    </div>
+</body>
+</html>

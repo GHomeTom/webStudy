@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing: border-box; */
+        }
+        a {
+            text-decoration: none;
+        }
+        .show {
+            width: 600px;
+            height: 100px;
+            margin: 100px auto;
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+        .show ul {
+            width: 2000px;
+            height: 100px;
+            animation: mv 5s backwards infinite linear;
+            /* animation-play-state: running; */
+        }
+        .show ul li {
+            float: left;
+            list-style: none;
+        }
+        .show img {
+            width: 200px;
+            height: 100px;
+        }
+        @keyframes mv {
+            to {
+                transform: translateX(-1400px);
+            }
+        }
+        .show:hover ul {
+            animation-play-state: paused;
+        }
+    </style>
+    <body>
+        <!-- 480-270 -->
+        <div class="show">
+            <ul>
+                <li><a href="#">
+                    <img src="./images/1.jpg" alt="">
+                </a></li>
+                <li><a href="javascript:;">
+                    <img src="./images/2.jpg" alt="">
+                </a></li>
+                <li><a href="#">
+                    <img src="./images/3.jpg" alt="">
+                </a></li>
+                <li><a href="#">
+                    <img src="./images/4.jpg" alt="">
+                </a></li>
+                <li><a href="#">
+                    <img src="./images/5.jpg" alt="">
+                </a></li>
+                <li><a href="#">
+                    <img src="./images/6.jpg" alt="">
+                </a></li>
+                <li><a href="#">
+                    <img src="./images/7.jpg" alt="">
+                </a></li>
+                <li><a href="#">
+                    <img src="./images/1.jpg" alt="">
+                </a></li>
+                <li><a href="#">
+                    <img src="./images/2.jpg" alt="">
+                </a></li>
+                <li><a href="#">
+                    <img src="./images/3.jpg" alt="">
+                </a></li>
+            </ul>
+        </div>
+    </body>
+    </html>
+</body>
+</html>

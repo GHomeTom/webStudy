@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .path {
+        width: 888px;
+        height: 140px;
+        margin: 100px auto;
+        background-color: #666;
+    }
+    .run {
+        width: 140px;
+        height: 140px;
+        border: 1px transparent #000;
+        background: url(./images/bg.png) no-repeat 0 0;
+        background-size: cover;
+        animation: run 1s steps(12) infinite,
+                   mov 4s forwards linear;
+        transition: all 9s;
+    }
+    @keyframes run {
+        to {
+            background-position: -1675px 0;
+            transform: translateX(740px);
+        }
+    }
+    @keyframes mov {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(748px);
+        }
+    }
+</style>
+<body>
+    <div class="path">
+        <div class="run"></div>
+    </div>
+</body>
+</html>

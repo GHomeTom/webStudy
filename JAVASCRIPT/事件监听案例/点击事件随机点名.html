@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: relative;
+            width: 300px;
+            height: 100px;
+            margin: 50px auto;
+        }
+        h5 {
+            float: left;
+            margin-left: 20px;
+            margin-top: 40px;
+        }
+        span {
+            float: right;
+            width: 180px;
+            height: 60px;
+            line-height: 25px;
+            margin: 20px 5px 0 0;
+            text-align: center;
+            border: 1px solid #999;
+        }
+        button {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .b {
+            left: 140px;
+            top: 90px;
+        }
+        .p {
+            left: 220px;
+            top: 90px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h5>
+            抽中的选手是：
+        </h5>
+        <span>
+            <p>请开始</p>
+        </span>
+        <button class="b">开始</button>
+        <button class="p">停止</button>
+    </div>
+    <script>
+
+    // HTML的标签即为js中的dom对象，对象包括属性和方法
+
+        // 点名: 每次刷新网页运行, 在控制台 随机输出一位同学的名字 ["老赵", "老李", "小传", "小黑"]，如果输出了，则数组中删除这个名字
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        let arr = ["老赵", "老李", "小传", "小黑", "董徐磊傻呗","董志豪帅比"]
+        let slct = 0
+        let timer = 0
+    // 添加事件监听
+        // 获取html里的选择器
+        let str = document.querySelector ('span p')
+        let bbtn = document.querySelector ('.b')
+        let pbtn = document.querySelector ('.p')
+        pbtn.disabled = true
+        // 添加点击事件
+        bbtn.addEventListener ('click', function () {
+                pbtn.disabled = false
+                bbtn.disabled = true
+                timer = setInterval (function () {
+                slct = getRandom (0, arr.length-1)
+                // 修改str选择器中的文本属性
+                str.innerHTML = arr[slct]
+                // 考虑到将名单内抽取尽的情况,当只剩一个数据时禁用按钮
+                if (arr.length === 1) {
+                    pbtn.disabled = true
+                }
+            }, 15)
+        })
+        // 添加停止按钮清除定时器事件
+        pbtn.addEventListener ('click', function() {
+                bbtn.disabled = false
+                pbtn.disabled = true
+                clearInterval (timer)
+                arr.splice (slct,1)
+                console.log (arr)
+        })
+    </script>
+</body>
+</html>

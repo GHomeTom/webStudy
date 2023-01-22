@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        div {
+            position: relative;
+            width: 85px;
+            height: 45px;
+            margin: 50px auto;
+        }
+
+        #total {
+            width: 60px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+        }
+
+        #add ,
+        #reduce {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        #add {
+            right: 0px;
+            top: 0;
+        }
+        #reduce {
+            right: 0px;
+            bottom: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="total" value="1" readonly>
+        <input type="button" value="+" id="add">
+        <input type="button" value="-" id="reduce">
+    </div>
+    
+    <script>
+        // 注意value属性的值为string字符型
+        // 而num++有隐形转化，则可以不用考虑类型转化
+        // 获取元素
+        let total = document.querySelector ('#total')
+        let add = document.querySelector ('#add')
+        let reduce = document.querySelector ('#reduce')
+
+        // 初始化计数变量
+        // 将value转化为数字赋值
+        let num = +total.value
+        // 初始化减数量按钮
+        if (num <= 1) {
+                reduce.disabled = true
+            }
+        // 添加加数量点击事件
+        add.addEventListener ('click', function () {
+            // 加功能实现
+            num++
+            // 判断是否数量为最少，否则启用减按钮
+            if (num >= 0) {
+                reduce.disabled = false
+            }
+            // 判断是否超出最大数量，是则禁用加按钮
+            if (num >= 10) {
+                add.disabled = true
+            }
+            // 修改value属性里的文本值
+            total.value = num
+        })
+        // 添加减数量事件
+        reduce.addEventListener ('click', function () {
+            // 减功能实现
+            num--
+            // 判断是否数量为最少，是则禁用减按钮
+            if (num <= 1) {
+                reduce.disabled = true
+            }
+            // 判断是否超出最大数量，否则启用加按钮
+            if (num < 10) {
+                add.disabled = false
+            }
+            // 修改value属性里的文本值
+            total.value = num
+        })
+    </script>
+</body>
+
+</html>
