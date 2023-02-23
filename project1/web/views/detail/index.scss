@@ -1,0 +1,31 @@
+// 引入管理系统页面公共style.scss文件
+
+// easy scss插件的问题,可能是基于Windows系统的原因
+// 需要使用反斜杠查找文件路径,双反斜杠即转义\
+@import '..\\style.scss';
+
+ 
+// 新闻详情页样式
+.content {
+    height: 100%;
+    padding-top: 20px;
+    font-size: 24px;
+    font-weight: 500;
+    background-color: #c9c9c9;
+    .title {
+        text-align: center;
+    }
+    .author {
+        font-weight: 400;
+        color: #333;
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .newcontent {
+        font-size: 20px;
+        font-weight: 400;
+        padding: 20px 10px 0;
+        border-top: 2px solid #333;
+    }
+}

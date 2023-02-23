@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <!-- 导入页面的基本样式 -->
+  <link rel="stylesheet" href="./css/search.css" />
+  <!-- 导入 jQuery -->
+  <script src="./lib/jquery.js"></script>
+  <!-- 导入模板引擎 -->
+  <script src="./lib/template-web.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Logo -->
+    <img src="./images/taobao_logo.png" alt="" class="logo" />
+
+    <div class="box">
+      <!-- tab 栏 -->
+      <div class="tabs">
+        <div class="tab-active">宝贝</div>
+        <div>店铺</div>
+      </div>
+      <!-- 搜索区域（搜索框和搜索按钮） -->
+      <div class="search-box">
+        <input id="ipt" type="text" class="ipt" placeholder="请输入要搜索的内容" /><button class="btnSearch">
+          搜索
+        </button>
+      </div>
+      <!-- 搜索建议列表 -->
+      <div id="suggest-list"></div>
+    </div>
+  </div>
+
+  <!-- 模板结构 -->
+  <!-- <script type="text/html" id="tpl-suggestList">
+    {{each result}} -->
+  <!--搜索建议项-->
+  <!-- <div class="suggest-item">{{$value[0]}}</div>
+    {{/each}}
+  </script> -->
+
+  <script>
+
+    $(function () {
+      
+      let timer=null
+      // 缓存对象
+      let cacheObj={}
+      let keywords = ''
+      $('#ipt').on('keyup', function () {
+        // 如果用户继续输入则清空计时器
+        clearTimeout(timer)
+        keywords = $(this).val().trim()
+        // 判断缓存对象中是否有输入的键值
+        if (cacheObj[keywords]) {
+          return render(cacheObj[keywords])
+        }
+        // console.log(keywords);
+        if (keywords.length <= 0) {
+          return $('#suggest-list').html('').hide()
+        }
+        // console.log(keywords);
+        // getlist(keywords)
+        fangdou(keywords)
+
+      })
+      // 防抖策略
+      function fangdou(kws) {
+        timer=setTimeout(() => {
+          getlist(kws)
+        }, 1000);
+      }
+
+      function getlist(kws) {
+        $.ajax({
+          url: 'https://suggest.taobao.com/sug?q=' + kws,
+          dataType: 'jsonp',
+          success: res => {
+            // console.log(res.result);
+            render(res.result)
+          }
+        })
+      }
+
+
+
+      function render(data) {
+        let lis = data.map(item =>
+          `<div class="suggest-item">${item[0]}</div>`
+        ).join(' ')
+        // console.log(lis);
+        $('#suggest-list').html(lis).show()
+        // 获取缓存对象的键
+        let k =$('#ipt').val().trim()
+        // 将对应的已加载的数组值作为缓存对象的值
+        cacheObj[k]=data
+      }
+
+    })
+
+
+
+
+  </script>
+</body>
+
+</html>

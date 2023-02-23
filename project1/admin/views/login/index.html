@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="/project1/admin/lib/css/bootstrap.min.css">
+    <script src="/project1/admin/lib/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/project1/admin/views/login/index.css">
+</head>
+
+<body>
+    <div class="loginContainer">
+        <h2>风起网后台管理系统</h2>
+        <form id="loginform">
+            <!-- 用户名输入框 -->
+            <div class="mb-3">
+              <label for="username" class="form-label">用户名</label>
+              <input type="user" class="form-control" id="username" aria-describedby="emailHelp" required>
+              
+            </div>
+            <!-- 密码输入框 -->
+            <div class="mb-3">
+              <label for="password" class="form-label">密码</label>
+              <input type="password" class="form-control" id="password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">登录</button>
+
+            <!-- 用户名或密码错误提示信息 -->
+            <div id="idError" class="form-text" style="display: none;color: red;">用户名密码不匹配</div>
+
+          </form>
+    </div>
+
+    <!-- 引入index.js文件 -->
+    <script src="/project1/admin/views/login/index.js"></script>
+</body>
+</html>

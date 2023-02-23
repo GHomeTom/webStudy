@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>风起网</title>
+    <link rel="stylesheet" href="/project1/admin/lib/css/bootstrap.min.css">
+    <script src="/project1/admin/lib/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/project1/admin/views/home/index.css">
+</head>
+
+<body>
+    <!-- 登录后的管理首页 -->
+    <div class="main">
+        <!-- 顶部导航栏 -->
+        <div class="topbar">
+            <!-- 通过LoadView.js引入components组件加载顶部导航 -->
+        </div>
+        <!-- 内容盒子 -->
+        <div class="box">
+            <!-- 内容 -->
+            <!-- fluid清除间距 -->
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- 侧边栏菜单bootstrap栅格布局12等份 -->
+                    <div class="col-2 sidemenu">
+                        
+                    </div>
+                    <!-- 主体内容展示 -->
+                    <div class="col-10 main-content">
+                        <div class="maincontent">
+                            <!-- 面包屑 -->
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item" aria-current="page">用户管理</li>
+                                    <li class="breadcrumb-item active" aria-current="page">添加用户</li>
+                                </ol>
+                            </nav>
+                            
+
+                            <form id="adduserform">
+
+                                <!-- 用户名输入框 -->
+                                <div class="mb-3">
+                                  <label for="username" class="form-label">用户名</label>
+
+                                  <input type="user" class="form-control" id="username" aria-describedby="emailHelp" required>
+                                  
+                                </div>
+
+                                <!-- 密码输入框 -->
+                                <div class="mb-3">
+                                  <label for="password" class="form-label">密码</label>
+
+                                  <input type="password" class="form-control" id="password" required>
+                                </div>
+                    
+                                <!-- 个人简介 -->
+                                <div class="mb-3">
+                                    <label for="introduction" class="form-label">个人简介</label>
+
+                                    <textarea class="form-control" cols="10" rows="3" maxlength="200" id="introduction" style="resize: none; overflow: hidden;"></textarea>
+                                  </div>
+
+
+                                  <!-- 上传头像文件 -->
+                                <div class="mb-3">
+                                    <label for="photofile" class="form-label">上传头像</label>
+
+                                    <input type="file" class="form-control" id="photofile" required>
+                                  </div>
+                                
+                                <button type="submit" class="btn btn-primary">添加用户</button>
+                    
+                              </form>
+                        </div>
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入js文件加载topbar部分的内容 -->
+    <script src="index.js" type="module"></script>
+
+</body>
+</html>

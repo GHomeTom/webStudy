@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/user.css">
+</head>
+
+<body>
+  <h1>新增学员</h1>
+  <div class="info">
+    姓名：<input type="text" class="uname">
+    年龄：<input type="text" class="age">
+    性别: <select name="gender" id="" class="gender">
+      <option value="男">男</option>
+      <option value="女">女</option>
+    </select>
+    学号：<input type="text" class="stuId">
+    薪资：<input type="text" class="salary">
+    就业城市：<select name="city" id="" class="city">
+      <option value="北京">北京</option>
+      <option value="上海">上海</option>
+      <option value="广州">广州</option>
+      <option value="深圳">深圳</option>
+      <option value="曹县">曹县</option>
+
+    </select>
+    <button class="add">录入</button>
+  </div>
+
+  <h1>就业榜</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>薪资</th>
+        <th>就业城市</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <td>1001</td>
+        <td>欧阳霸天</td>
+        <td>19</td>
+        <td>男</td>
+
+        <td>15000</td>
+        <td>上海</td>
+        <td>
+          <a href="javascript:">删除</a>
+        </td>
+      </tr> -->
+    </tbody>
+  </table>
+  <script>
+    // //  1. 准备好数据后端的数据
+    // let arr = [
+    //   { stuId: 1001, uname: '欧阳霸天', age: 19, gender: '男', salary: '20000', city: '上海' },
+    //   { stuId: 1002, uname: '令狐霸天', age: 29, gender: '男', salary: '30000', city: '北京' },
+    //   { stuId: 1003, uname: '诸葛霸天', age: 39, gender: '男', salary: '2000', city: '北京' },
+    // ]
+
+    // 创建对象
+    let tbody = document.querySelector('tbody')
+
+    let uname = document.querySelector('.uname')
+    let age = document.querySelector('.age')
+    let gender = document.querySelector('.gender')
+    let stuId = document.querySelector('.stuId')
+    let salary = document.querySelector('.salary')
+    let city = document.querySelector('.city')
+    let add = document.querySelector('.add')
+
+
+
+    // 获取本地数据函数
+    function getLocal() {
+      // 先在本地获取数据
+      let date = localStorage.getItem('date')
+      // 判断是否本地是否有数据
+      if (date) {
+        // date为true,即本地有数据,返回本地数据即可
+        return JSON.parse(date)
+      }
+      else {
+        // 没有数据,即存入默认数据初始化
+        // 默认的数据
+        let arr = [
+          { stuId: 1001, uname: '欧阳霸天', age: 19, gender: '男', salary: '20000', city: '上海' },
+          { stuId: 1002, uname: '令狐霸天', age: 29, gender: '男', salary: '30000', city: '北京' },
+        ]
+        // 将默认数据写入本地
+        localStorage.setItem('date', JSON.stringify(arr))
+      }
+    }
+
+    // 初始化本地数据
+    getLocal()
+
+    // 渲染函数
+    function render() {
+      // 读取本地数据,并赋值给arr[]
+      arr = getLocal()
+      // 清空旧列表的元素
+      tbody.innerHTML = ''
+      // 渲染数组数据
+      for (let i = 0; i <= arr.length - 1; i++) {
+        // 创建tr对象节点
+        let tr = document.createElement('tr')
+        // 添加tr节点html内容
+        tr.innerHTML = `
+            <td>${arr[i].stuId}</td>
+            <td>${arr[i].uname}</td>
+            <td>${arr[i].age}</td>
+            <td>${arr[i].gender}</td>
+            <td>${arr[i].salary}</td>
+            <td>${arr[i].city}</td>
+            <td><a href="javascript:" data-id = '${i}'>删除</a></td>
+        `
+        // 将tr节点追加到tbody中
+        tbody.appendChild(tr)
+      }
+    }
+
+    // 执行渲染函数
+    render()
+
+    // 录入数据
+    // 添加录入点击事件
+    add.addEventListener('click', function () {
+      // 输入合法判断
+      if (uname.value === '' || age.value === '' || stuId.value === '' || salary.value === '') {
+        return alert('请输入内容')
+      }
+      // 读取本地数据
+      let arr = getLocal ()
+      // 获取表单值
+      // 将表单数据push到数据数组中
+      arr.push({
+        stuId: stuId.value,
+        uname: uname.value,
+        age: age.value,
+        gender: gender.value,
+        salary: salary.value,
+        city: city.value
+      })
+      // 将arr数据存储到本地
+      localStorage.setItem('date',JSON.stringify(arr))
+      // 重新渲染列表
+      render()
+      // 复原所有的表单数据
+      uname.value = age.value = salary.value = stuId.value = ''
+      gender.value = '男'
+      city.value = '北京'
+    })
+
+    // 删除功能,使用事件流来实现,事件委托
+    tbody.addEventListener('click', function (e) {
+      // console.log(e.target.dataset.id)
+      // 读取本地数据
+      let arr = getLocal ()
+      if (e.target.tagName === 'A') {
+        
+        // 删除数组中的数据
+        // 无法确定a链接的具体位置,需要在生成时对a添加id标记
+        arr.splice(e.target.dataset.id, 1)
+        // 同时修改本地数据
+        localStorage.setItem('date',JSON.stringify(arr))
+        // 渲染数据
+        render()
+      }
+    })
+
+    // 按下回车添加表单
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        add.click()
+      }
+    })
+
+  </script>
+</body>
+
+</html>

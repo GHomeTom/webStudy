@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.3.js"></script>
+</head>
+<style>
+    textarea {
+        width: 300px;
+        height: 150px;
+        padding: 10px;
+        font-size: 18px;
+        background-color: #999;
+        border-radius: 4px;
+        resize: none;
+        vertical-align: bottom;
+    }
+
+
+</style>
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>get</button>
+
+    <script>
+        $('button').click(function() {
+            $.get('https://xl.xilinglaoshi.com:8001/qingshi',{"data":[{"content":"我爱你1，你爱我，蜜雪冰城甜蜜蜜","source":"蜜雪冰城","author":"雪王"}]},function(res) {
+                $('textarea').text(JSON.parse(res).data[0].content)
+                console.log(JSON.parse(res))
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!-- 网站管理系统侧边导航栏的布局 -->
+
+
+<!-- 首页部分 -->
+<ul class="nav flex-column">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="/project1/admin/views/home/index.html"
+      style="margin-top: 10px;" id="side-nav">首页</a>
+  </li>
+
+  <ul class="nav flex-column"></ul>
+  <!-- 从bootstrap导入的下拉导航模板 -->
+  <!-- data-bs-target对应的值为下拉部分div的id,保持一致即表示点击h2的头部标题即展开相应的id所属的div -->
+  <div class="accordion" id="accordionPanelsStayOpenExample">
+
+    <!-- 第一行 -->
+    <div class="accordion-item user-manage-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseOne1" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+          用户管理
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseOne1" class="accordion-collapse collapse show"
+        aria-labelledby="panelsStayOpen-headingOne">
+        <div class="accordion-body">
+          <a class="nav-link active" aria-current="page" href="/project1/admin/views/user-manage/addUsers/index.html"
+            style="margin-top: 10px;" id="side-adduser">添加用户</a>
+
+          <a class="nav-link active" aria-current="page" href="/project1/admin/views/user-manage/userList/index.html"
+            style="margin-top: 10px;" id="side-userlist">用户列表</a>
+        </div>
+      </div>
+    </div>
+
+      <!-- 第二行 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseOne2" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+            新闻管理
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseOne2" class="accordion-collapse collapse show"
+          aria-labelledby="panelsStayOpen-headingOne">
+          <div class="accordion-body">
+            <a class="nav-link active" aria-current="page" href="/project1/admin/views/news-manage/addNews/index.html"
+            style="margin-top: 10px;" id="side-addnew">创建新闻</a>
+
+          <a class="nav-link active" aria-current="page" href="/project1/admin/views/news-manage/newsList/index.html"
+            style="margin-top: 10px;" id="side-newlist">新闻列表</a>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</ul>
+
+
+
+
+<!-- 自定义的style,覆盖bootstrap模板的样式 -->
+<style>
+  .accordion-button:not(.collapsed) {
+    color: #000;
+    background-color: #fff;
+    box-shadow: none;
+  }
+
+  .accordion-item {
+    border: none;
+  }
+
+  .nav-link {
+    color: #000;
+  }
+
+  .accordion-button:focus {
+    /* border: none; */
+    box-shadow: none;
+  }
+</style>

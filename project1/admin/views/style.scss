@@ -1,0 +1,43 @@
+// 公共css样式，用于管理系统各个子页面
+
+html,
+body,
+.main {
+    height: 100%;
+}
+
+
+/* 网站管理系统页面布局 */
+.main {
+    display: flex;
+    flex-direction: column;
+
+    /* 顶部导航栏 */
+    .topbar {
+        z-index: 100;
+        height: 50px;
+        // background-color: blue;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    
+
+    /* 管理区 */
+    .box {
+        flex: 1;
+        padding-top: 50px;
+
+        // background-color: blue;
+
+        // 右边主要内容外层框架样式
+        .main-content {
+            padding: 20px;
+            .maincontent {
+                padding: 20px;
+                box-shadow: 0 0 5px rgba($color: #000000, $alpha: .2);
+            } 
+        }
+    }
+} 

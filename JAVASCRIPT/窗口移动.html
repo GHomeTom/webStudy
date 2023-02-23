@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- <script src="../jq/jquery-3.6.3.js"></script> -->
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        height: 2000px;
+    }
+
+    .login {
+        float: left;
+        margin: 0 auto;
+        /* z-index: 0; */
+    }
+
+    .mask {
+        display: none;
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        /* display: none; */
+        background: rgba(0, 0, 0, 0.4);
+
+    }
+
+    .box {
+        display: none;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 120px;
+        width: 250px;
+        padding: 0 8px 8px;
+        text-align: center;
+        background-color: #fff;
+        border-radius: 0px 9px;
+        border-top: 5px solid blue;
+    }
+    .box .close {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    .inp {
+        margin-top: 15px;
+    }
+
+    .seeit {
+        display: block;
+        z-index: 100;
+    }
+</style>
+
+<body>
+    <button class="login">请先登陆</button>
+    <div class="mask">
+        <div class="box">
+            <a class="close">×</a>
+            <div class="head">
+                请登录
+            </div>
+            <div class="inp">
+                <div class="user">
+                    账号：
+                    <input type="text" placeholder="请输入账号">
+                </div>
+                <div class="inp">
+                    密码：
+                    <input type="text" placeholder="请输入密码">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let login = document.querySelector('.login')
+        let mask =document.querySelector('.mask')
+        let box = document.querySelector('.box')
+        let close =document.querySelector('.box .close')
+        let head =document.querySelector('.head')
+        login.addEventListener('click',function(){
+            mask.classList.add('seeit')
+            box.classList.add('seeit')
+            console.log ('1')
+        })
+        close.addEventListener('click',function(){
+            mask.classList.remove('seeit')
+            box.classList.remove('seeit')
+        })
+        head.addEventListener('mousedown',function(e){
+            let x =e.pageX-box.offsetLeft
+            let y =e.pageY-box.offsetTop
+            document.addEventListener('mousemove',move)
+            function move (e){
+                box.style.left = e.pageX-x +'px'
+                box.style.top = e.pageY-y + 'px'
+             }
+            document.addEventListener('mouseup',function(){
+            document.removeEventListener('mousemove', move)
+             })
+        })
+        
+        
+    </script>
+</body>
+
+</html>

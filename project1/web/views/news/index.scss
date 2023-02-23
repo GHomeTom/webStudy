@@ -1,0 +1,152 @@
+// 引入管理系统页面公共style.scss文件
+
+// easy scss插件的问题,可能是基于Windows系统的原因
+// 需要使用反斜杠查找文件路径,双反斜杠即转义\
+@import '..\\style.scss';
+
+
+
+// 背景图片的样式
+.bg {
+    background-image: url(http://localhost:5000/bg.jpg);
+    width: 100%;
+    height: calc(100vh - 50px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+
+    // 搜索框的层级及一些布局和样式
+    .searchBox {
+        z-index: 100;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+
+        // 搜索下拉列表的一些样式
+        .list-group {
+            position: absolute;
+            width: 100%;
+            opacity: .9;
+
+            a {
+                font-weight: 500;
+                color: #333;
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: blue;
+            }
+
+        }
+    }
+}
+
+// 装新闻卡片栏的底盒子，定位在背景图片里
+.newShow {
+    position: absolute;
+    width: 100%;
+    background-color: rgba($color: #fff, $alpha: .2);
+    left: 0;
+    bottom: 0;
+}
+
+// 新闻卡片的父亲，控制小卡片flex弹性布局
+.cardContent {
+    display: flex;
+    padding: 10px 0;
+    justify-content: space-around;
+
+    // 新闻卡片的总体样式及动画过渡
+    .card {
+        padding: 2px;
+        width: 340px;
+        background-color: rgba($color: #f1e0e0, $alpha: .8);
+        border-radius: 10px;
+        transition: all .2s;
+
+        // 新闻卡片的封面图片样式
+        .showPic {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        // 新闻卡片的文本样式调整，一行显示
+        p {
+            margin-bottom: 0;
+            /* 指定行数显示，溢出部分省略号代替 */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+
+        // 卡片新闻作者的样式
+        .card-author {
+            display: inline-block;
+            vertical-align: bottom;
+            // font-size: 16px;
+            color: #2825e4;
+        }
+    }
+
+    // 新闻热点卡片展示的鼠标经过，阴影及移动特效
+    .card:hover {
+        /* x 偏移量 | y 偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色 */
+        box-shadow: 1px 3px 3px 2px rgba(0, 0, 0, 0.2);
+        transform: translateY(-3px);
+        cursor: pointer;
+    }
+}
+
+// 新闻中心下一页的新闻分类
+.sortNews {
+    // margin-top: 30px;
+    padding: 30px;
+    background-image: linear-gradient(to bottom, #694b2f, #3b0606);
+    .my-navlink {
+        color: #fff;
+    }
+}
+// 新闻分类的样式
+.list-item {
+    padding: 10px;
+    width: 50%;
+    margin: 10px auto;
+    background-color: rgba($color: #999, $alpha: .2);
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .2s;
+    img {
+        // float: left;
+        display: inline-block;
+        width: 300px;
+        border-radius: 5px;
+
+    }
+    .new-text {
+        display: inline-block;
+        margin-left: 40px;
+        vertical-align: middle;
+        font-size: 22px;
+        color: #fff;
+        font-weight: 500;
+        .p2 {
+            font-size: 18px;
+            color: #999;
+            font-weight: 400;
+        }
+    }
+    &:hover {
+        transform: translateX(-3px);
+        box-shadow: px 1px 3px 2px rgba(0, 0, 0, 0.3);
+        background-color: rgba($color: #999, $alpha: .5);
+    }
+}

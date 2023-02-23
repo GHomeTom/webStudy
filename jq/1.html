@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        line-height: 90px;
+        text-align: center;
+        background-color: #999;
+    }
+</style>
+
+<body>
+    <div>
+        <button>-</button>
+        <span>0</span>
+        <button>+</button>
+    </div>
+    <script src="./jquery-3.6.3.js">
+
+    </script>
+    <script>
+        let i = 0
+        function gtlc() {
+            let lc = localStorage.getItem('num')
+            if (lc) {
+                i = lc
+                return i
+            }
+            else {
+                localStorage.setItem('num', i)
+                return localStorage.getItem('num')
+            }
+        }
+        gtlc ()
+
+        $('button:last-child').click(function () {
+            i++
+            if (i > 9) {
+                i = 0
+            }
+            localStorage.setItem('num', i)
+            // let loc = localStorage.getItem('num')
+            $('div span').html(i)
+            console.log(i)
+        })
+        $('button:first-child').click(function () {
+            i--
+            if (i < 0) {
+                i = 9
+            }
+            localStorage.setItem('num', i)
+            // let loc = localStorage.setItem('num', i)
+            $('div span').html(i)
+            console.log(i)
+        })
+        $('div span').html(gtlc ())
+
+    </script>
+</body>
+
+</html>

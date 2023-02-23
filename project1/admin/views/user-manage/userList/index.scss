@@ -1,0 +1,7 @@
+
+// 引入管理系统页面公共style.scss文件
+
+// easy scss插件的问题,可能是基于Windows系统的原因
+// 需要使用反斜杠查找文件路径,双反斜杠即转义\
+@import '..\\..\\style.scss';
+

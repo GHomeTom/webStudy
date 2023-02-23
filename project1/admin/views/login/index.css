@@ -1,0 +1,19 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #2d3a4b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+body .loginContainer {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 600px;
+  height: 400px;
+  padding: 50px;
+  border-radius: 10px;
+}
